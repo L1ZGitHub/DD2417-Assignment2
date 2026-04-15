@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Generated vector files (too large)
+*/vectors.txt
+*/vectors_*.txt
+RandomIndexing/temp__.txt
+word2vec/temp__.txt
+
+# Training data (copyrighted / pre-trained)
+RandomIndexing/data/
+multilingual/data/
+
+# Experiment outputs (regenerable)
+*/experiments_output.txt
+multilingual/results_multilingual.txt
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Zone identifiers (Windows on WSL)
+*:Zone.Identifier
+
+# Original assignment archive
+*.zip
+
+# Claude session
+.claude/
