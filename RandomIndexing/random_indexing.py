@@ -149,14 +149,14 @@ class RandomIndexing(object):
         
         # YOUR CODE HERE
         self.rv = np.zeros((len(self.id2word), self.dimension))
+        
         for i in range(len(self.id2word)) :
             non_zero_positions = np.random.choice(self.dimension, self.non_zero, replace=False)
             self.rv[i][non_zero_positions] = np.random.choice(self.non_zero_values, self.non_zero)
         
         self.cv = np.zeros((len(self.id2word), self.dimension))
         for focus_id, context in self.datapoints :
-            for context_id in context :
-                self.cv[focus_id] += self.rv[context_id]
+            self.cv[focus_id] += np.sum(self.rv[context], axis=0)
         
 
         
