@@ -120,12 +120,14 @@ def main():
                    dim=2000, non_zero=100, lws=2, rws=2,
                    metric=metric, normalized=True, label=f"METRIC={metric}")
 
-    # Experiment 2: Normalized vs not
+    # Experiment 2: Normalized vs not, across all 3 metrics
     print("\n\n########## EXPERIMENT: NORMALIZATION ##########")
-    for norm in [True, False]:
-        run_config(datapoints, len(id2word), word2id, id2word,
-                   dim=2000, non_zero=100, lws=2, rws=2,
-                   metric="cosine", normalized=norm, label=f"NORM={norm}")
+    for metric in ["cosine", "euclidean", "manhattan"]:
+        for norm in [True, False]:
+            run_config(datapoints, len(id2word), word2id, id2word,
+                       dim=2000, non_zero=100, lws=2, rws=2,
+                       metric=metric, normalized=norm,
+                       label=f"METRIC={metric}, NORM={norm}")
 
     # Experiment 3: Dimensionality x non-zero proportion
     print("\n\n########## EXPERIMENT: DIMENSION x NON-ZERO ##########")
